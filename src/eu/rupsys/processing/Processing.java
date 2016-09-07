@@ -6,9 +6,4 @@ import java.util.List;
 public interface Processing {
 
     List<BigDecimal> getResult();
-
-    enum Type {
-
-        POINT
-    }
 }

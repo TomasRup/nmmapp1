@@ -1,31 +1,18 @@
 package eu.rupsys;
 
 import eu.rupsys.processing.points.PointProcessing;
-
-import java.math.BigDecimal;
-import java.util.List;
+import eu.rupsys.processing.ui.TerminalUI;
 
 public class App {
 
     public static void main(final String[] args) {
-        // Checking user input
-        checkEnoughArgumentsProvided(args, 3);
-        final int n = Integer.valueOf(args[0]);
-        final BigDecimal sigma = BigDecimal.valueOf(Double.valueOf(args[1]));
-        final BigDecimal gamma = BigDecimal.valueOf(Double.valueOf(args[2]));
+        TerminalUI.checkEnoughArgumentsProvided(args, 3);
 
-        // Executing point processing
-        final PointProcessing pointProcessing = PointProcessing.generate(n, sigma, gamma);
-        final List<BigDecimal> tValues = pointProcessing.getResult();
+        final PointProcessing pointProcessing = PointProcessing.generate(
+                TerminalUI.getN(args),
+                TerminalUI.getSigma(args),
+                TerminalUI.getGamma(args));
 
-        // Giving output to the user
-        System.out.println(tValues);
-    }
-
-    private static void checkEnoughArgumentsProvided(final String[] args, int neededNumber) {
-        if (args == null || args.length < neededNumber) {
-            System.out.println("Usage: java App [n] [sigma] [gamma]");
-            System.exit(1);
-        }
+        TerminalUI.printListOfBigDecimals(pointProcessing.getResult());
     }
 }
