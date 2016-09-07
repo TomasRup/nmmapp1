@@ -1,7 +1,14 @@
 package eu.rupsys.processing;
 
-public interface Processing<P, R> {
+import java.math.BigDecimal;
+import java.util.List;
 
-    Processing generate(P parameters);
-    R getResult();
+public interface Processing {
+
+    List<BigDecimal> getResult();
+
+    enum Type {
+
+        POINT
+    }
 }
