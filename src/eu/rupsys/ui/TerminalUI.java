@@ -15,6 +15,6 @@ public class TerminalUI {
     }
 
     public static boolean enoughArgumentsProvided(final String[] args, int neededNumber) {
-        return args != null && args.length < neededNumber;
+        return args != null && args.length >= neededNumber;
     }
 }
