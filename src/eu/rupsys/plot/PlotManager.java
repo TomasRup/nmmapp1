@@ -41,7 +41,7 @@ public class PlotManager {
                 final double firstClausesResult = (2 / (tValues.get(n) - tValues.get(0)));
 
                 // Iterating 10^-6 to 10^0
-                for (int fPower = LOWER_BOUND_INDEX ; fPower <= UPPER_BOUND_INDEX ; fPower++) {
+                for (double fPower = LOWER_BOUND_INDEX ; fPower <= UPPER_BOUND_INDEX ; fPower += 0.1) {
                     double f = Math.pow(10, fPower);
 
                     double secondClausesResult = 0;

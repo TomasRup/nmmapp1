@@ -30,12 +30,10 @@ public class App {
         final List<Double> cosFunctionValues = plotManager.executeSinFunction();
 
         // Printing values to terminal
-        TerminalUI.printLine("-- SIN VALUES START --");
+        TerminalUI.printLine("### SIN VALUES");
         TerminalUI.printPointsListWithIdenticalXY(sinFunctionValues);
-        TerminalUI.printLine("-- SIN VALUES END --");
 
-        TerminalUI.printLine("-- COS VALUES START --");
+        TerminalUI.printLine("### COS VALUES");
         TerminalUI.printPointsListWithIdenticalXY(cosFunctionValues);
-        TerminalUI.printLine("-- COS VALUES END --");
     }
 }
