@@ -19,18 +19,18 @@ public class PlotManager {
     }
 
     // Scos(f) = (2 / tN − t0) * ( sum from k=0 to N of (cos(2πf * tk)) )^2
-    public List<Double> generateCosFunctionValues() {
-        return this.generateFunctionValues(FunctionType.COS);
+    public List<Double> executeSinFunction() {
+        return this.executeGenericFunction(FunctionType.COS);
     }
 
     // Ssin(f) = (2 / tN − t0) * ( sum from k=0 to N of (sin(2πf * tk)) )^2
-    public List<Double> generateSinFunctionValues() {
-        return this.generateFunctionValues(FunctionType.SIN);
+    public List<Double> executeCosFunction() {
+        return this.executeGenericFunction(FunctionType.SIN);
     }
 
     // Since both functions differ only by usage of cos or sin in the second clause
     // we move out it's execution to a separate one
-    private List<Double> generateFunctionValues(final FunctionType functionType) {
+    private List<Double> executeGenericFunction(final FunctionType functionType) {
         return new PlotFunction() {
 
             @Override

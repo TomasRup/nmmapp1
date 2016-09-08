@@ -8,9 +8,9 @@ public class TerminalUI {
         System.out.println(line);
     }
 
-    public static void printList(final List<Double> list) {
+    public static void printPointsListWithIdenticalXY(final List<Double> list) {
         for (final double item : list) {
-            System.out.println(item + ", ");
+            System.out.println("(" + item + ", " + item + "),");
         }
     }
 

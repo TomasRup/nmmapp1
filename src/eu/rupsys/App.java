@@ -26,16 +26,16 @@ public class App {
 
         // Generating plot points for both functions
         final PlotManager plotManager = new PlotManager(tValues, n);
-        final List<Double> sinFunctionValues = plotManager.generateSinFunctionValues();
-        final List<Double> cosFunctionValues = plotManager.generateCosFunctionValues();
+        final List<Double> sinFunctionValues = plotManager.executeCosFunction();
+        final List<Double> cosFunctionValues = plotManager.executeSinFunction();
 
         // Printing values to terminal
         TerminalUI.printLine("-- SIN VALUES START --");
-        TerminalUI.printList(sinFunctionValues);
+        TerminalUI.printPointsListWithIdenticalXY(sinFunctionValues);
         TerminalUI.printLine("-- SIN VALUES END --");
 
         TerminalUI.printLine("-- COS VALUES START --");
-        TerminalUI.printList(cosFunctionValues);
+        TerminalUI.printPointsListWithIdenticalXY(cosFunctionValues);
         TerminalUI.printLine("-- COS VALUES END --");
     }
 }
