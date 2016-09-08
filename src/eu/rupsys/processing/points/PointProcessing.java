@@ -9,55 +9,40 @@ import java.util.Random;
 
 public class PointProcessing implements Processing {
 
-    private final static BigDecimal INITIAL_T = BigDecimal.valueOf(0);
-    private final static BigDecimal INITIAL_TAU = BigDecimal.valueOf(10);
+    private final static double INITIAL_T = 0;
+    private final static double INITIAL_TAU = 10;
 
     private final int n;
-    private final BigDecimal sigma;
-    private final BigDecimal gamma;
+    private final double sigma;
+    private final double gamma;
 
-    private PointProcessing(
+    public PointProcessing(
             final int n,
-            final BigDecimal sigma,
-            final BigDecimal gamma) {
+            final double sigma,
+            final double gamma) {
 
         this.n = n;
         this.sigma = sigma;
         this.gamma = gamma;
     }
 
-    public static PointProcessing generate(
-            final int n,
-            final BigDecimal sigma,
-            final BigDecimal gamma) {
-
-        if (sigma == null || gamma == null) {
-            throw new NullPointerException();
-        }
-
-        return new PointProcessing(n, sigma, gamma);
-    }
-
     @Override
-    public List<BigDecimal> getResult() {
-        final List<BigDecimal> tValues = new ArrayList<>(this.n);
+    public List<Double> generate() {
+        final List<Double> tValues = new ArrayList<>(this.n + 1);
         tValues.add(INITIAL_T);
 
-        final List<BigDecimal> tauValues = new ArrayList<>(this.n);
+        final List<Double> tauValues = new ArrayList<>(this.n + 1);
         tauValues.add(INITIAL_TAU);
 
-        for (int k = 1 ; k < this.n ; k++) {
+        for (int k = 1 ; k <= this.n ; k++) {
 
             // τk = τk−1 − γ(τk−1 − 1) + σεk
-            final BigDecimal tauK = tauValues.get(k - 1)
-                    .subtract(this.gamma
-                            .multiply(tauValues.get(k - 1)
-                                    .subtract(BigDecimal.ONE)))
-                    .add(this.sigma
-                            .multiply(randomEpsilon()));
+            final double tauK = tauValues.get(k - 1)
+                    - (this.gamma * (tauValues.get(k - 1) - 1)
+                    + (this.sigma * randomEpsilon()));
 
             // tk = tk−1 + τk
-            final BigDecimal tK = tValues.get(k - 1).add(tauK);
+            final double tK = tValues.get(k - 1) + tauK;
 
             tauValues.add(tauK);
             tValues.add(tK);
@@ -66,7 +51,7 @@ public class PointProcessing implements Processing {
         return tValues;
     }
 
-    private BigDecimal randomEpsilon() {
-        return new BigDecimal(new Random().nextGaussian());
+    private double randomEpsilon() {
+        return new Random().nextGaussian();
     }
 }
