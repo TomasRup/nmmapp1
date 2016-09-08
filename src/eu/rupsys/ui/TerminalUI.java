@@ -21,6 +21,7 @@ public class TerminalUI {
             System.out.println();
         }
         System.out.print("]");
+        System.out.println();
     }
 
     public static boolean enoughArgumentsProvided(final String[] args, int neededNumber) {
