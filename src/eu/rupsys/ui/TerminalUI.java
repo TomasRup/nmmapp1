@@ -1,5 +1,7 @@
 package eu.rupsys.ui;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.List;
 
 public class TerminalUI {
@@ -9,10 +11,13 @@ public class TerminalUI {
     }
 
     public static void printPointsListWithIdenticalXY(final List<Double> list) {
+        final NumberFormat formatter = new DecimalFormat("#0.000000");
+
         System.out.print("[");
 
         for (final double item : list) {
-            System.out.print("(" + item + ", " + item + ")");
+            final String itemString = formatter.format(item);
+            System.out.print("(" + itemString + ", " + itemString + ")");
 
             if (list.lastIndexOf(item) != list.size() - 1) {
                 System.out.print(",");
