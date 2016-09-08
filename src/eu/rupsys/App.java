@@ -1,6 +1,7 @@
 package eu.rupsys;
 
 import eu.rupsys.plot.PlotManager;
+import eu.rupsys.plot.function.PlotPoint;
 import eu.rupsys.processing.points.PointProcessing;
 import eu.rupsys.ui.TerminalUI;
 
@@ -26,14 +27,14 @@ public class App {
 
         // Generating plot points for both functions
         final PlotManager plotManager = new PlotManager(tValues, n);
-        final List<Double> sinFunctionValues = plotManager.executeCosFunction();
-        final List<Double> cosFunctionValues = plotManager.executeSinFunction();
+        final List<PlotPoint> sinFunctionValues = plotManager.executeCosFunction();
+        final List<PlotPoint> cosFunctionValues = plotManager.executeSinFunction();
 
         // Printing values to terminal
         TerminalUI.printLine("### SIN VALUES");
-        TerminalUI.printPointsListWithIdenticalXY(sinFunctionValues);
+        TerminalUI.printPlotPoints(sinFunctionValues);
 
         TerminalUI.printLine("### COS VALUES");
-        TerminalUI.printPointsListWithIdenticalXY(cosFunctionValues);
+        TerminalUI.printPlotPoints(cosFunctionValues);
     }
 }

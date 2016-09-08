@@ -4,6 +4,6 @@ import java.util.List;
 
 public abstract class PlotFunction {
 
-    public abstract List<Double> apply(List<Double> tValues, int n);
+    public abstract List<PlotPoint> apply(List<Double> tValues, int n);
 
 }
