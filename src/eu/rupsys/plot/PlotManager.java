@@ -55,7 +55,7 @@ public class PlotManager {
                         }
                     }
 
-                    sCosValues.add(firstClausesResult * secondClausesResult);
+                    sCosValues.add(firstClausesResult * Math.pow(secondClausesResult, 2));
                 }
 
                 return sCosValues;
