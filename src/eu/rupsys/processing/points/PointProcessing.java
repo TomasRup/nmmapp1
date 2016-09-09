@@ -10,7 +10,7 @@ import java.util.Random;
 public class PointProcessing implements Processing {
 
     private final static double INITIAL_T = 0;
-    private final static double INITIAL_TAU = 10;
+    private final static double INITIAL_TAU = 1;
 
     private final int n;
     private final double sigma;
@@ -38,8 +38,8 @@ public class PointProcessing implements Processing {
 
             // τk = τk−1 − γ(τk−1 − 1) + σεk
             final double tauK = tauValues.get(k - 1)
-                    - (this.gamma * (tauValues.get(k - 1) - 1)
-                    + (this.sigma * randomEpsilon()));
+                    - (this.gamma * (tauValues.get(k - 1) - 1))
+                    + (this.sigma * randomEpsilon());
 
             // tk = tk−1 + τk
             final double tK = tValues.get(k - 1) + tauK;

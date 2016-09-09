@@ -31,10 +31,6 @@ public class App {
         final List<PlotPoint> cosFunctionValues = plotManager.executeSinFunction();
 
         // Printing values to terminal
-        TerminalUI.printLine("### SIN VALUES");
-        TerminalUI.printPlotPoints(sinFunctionValues);
-
-        TerminalUI.printLine("### COS VALUES");
-        TerminalUI.printPlotPoints(cosFunctionValues);
+        TerminalUI.printSageReadyResult(sinFunctionValues, cosFunctionValues);
     }
 }

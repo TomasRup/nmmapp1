@@ -38,7 +38,7 @@ public class PlotManager {
 
             @Override
             public List<PlotPoint> apply(final List<Double> tValues, final int n) {
-                final List<PlotPoint> sCosValues = new ArrayList<>(n + 1);
+                final List<PlotPoint> sValues = new ArrayList<>(n + 1);
 
                 // (2 / tN − t0) is constant
                 final double firstClausesResult = (2 / (tValues.get(n) - tValues.get(0)));
@@ -50,7 +50,7 @@ public class PlotManager {
                 for (int resolutionIndex = 0 ; resolutionIndex <= RESOLUTION ; resolutionIndex++) {
 
                     // Accumulating f by discreting formula
-                    double f = fMin * Math.pow(10, resolutionIndex * H);
+                    final double f = fMin * Math.pow(10, resolutionIndex * H);
 
                     double secondClausesResult = 0;
                     for (int k = 0 ; k <= n ; k++) {
@@ -64,10 +64,11 @@ public class PlotManager {
                     }
 
                     final double formulaResult = firstClausesResult * Math.pow(secondClausesResult, 2);
-                    sCosValues.add(new PlotPoint(f, formulaResult));
+                    sValues.add(new PlotPoint(f, formulaResult));
                 }
 
-                return sCosValues;
+                return sValues;
+
             }
 
         }.apply(this.tValues, this.n);

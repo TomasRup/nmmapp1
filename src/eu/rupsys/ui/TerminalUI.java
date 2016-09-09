@@ -12,10 +12,21 @@ public class TerminalUI {
         System.out.println(line);
     }
 
-    public static void printPlotPoints(final List<PlotPoint> list) {
-        final NumberFormat formatter = new DecimalFormat("#0.000000");
+    public static void printSageReadyResult(final List<PlotPoint> sinValues, final List<PlotPoint> cosValues) {
+        System.out.print("sinValues = ");
+        printPlotPoints(sinValues);
+        System.out.println();
+        System.out.print("cosValues = ");
+        printPlotPoints(cosValues);
+        System.out.println();
+        System.out.println("list_plot(cosValues, scale='loglog', legend_label='Scos(f)')");
+        System.out.println("list_plot(sinValues, scale='loglog', legend_label='Ssin(f)')");
+    }
 
-        System.out.print("[");
+    private static void printPlotPoints(final List<PlotPoint> list) {
+        final NumberFormat formatter = new DecimalFormat("#0.00000000");
+
+        System.out.print("[\n");
 
         for (final PlotPoint item : list) {
             System.out.print("(" + formatter.format(item.getX()) + ", " + formatter.format(item.getY()) + ")");
