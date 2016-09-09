@@ -1,0 +1,8 @@
+#!/bin/sh
+#SBATCH -p short
+#SBATCH -n1
+#SBATCH -C alpha
+#SBATCH -D /scratch/lustre/home/toru0015/nmmapp1
+
+# Running the App, creating logs
+mpirun java -jar nmmapp1.jar 100000 0.03 0.25 > nmmapp1.out 2>&1
