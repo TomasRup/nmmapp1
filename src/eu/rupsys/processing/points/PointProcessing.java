@@ -2,7 +2,6 @@ package eu.rupsys.processing.points;
 
 import eu.rupsys.processing.Processing;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

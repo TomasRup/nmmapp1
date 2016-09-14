@@ -21,19 +21,11 @@ public class PlotManager {
         this.n = n;
     }
 
-    // Scos(f) = (2 / tN − t0) * ( sum from k=0 to N of (cos(2πf * tk)) )^2
-    public List<PlotPoint> executeSinFunction() {
-        return this.executeGenericFunction(FunctionType.COS);
-    }
-
-    // Ssin(f) = (2 / tN − t0) * ( sum from k=0 to N of (sin(2πf * tk)) )^2
-    public List<PlotPoint> executeCosFunction() {
-        return this.executeGenericFunction(FunctionType.SIN);
-    }
-
     // Since both functions differ only by usage of cos or sin in the second clause
-    // we move out it's execution to a separate one
-    private List<PlotPoint> executeGenericFunction(final FunctionType functionType) {
+    // we move out it's execution to a separate one:
+    // Ssin(f) = (2 / tN − t0) * ( sum from k=0 to N of (sin(2πf * tk)) )^2
+    // Scos(f) = (2 / tN − t0) * ( sum from k=0 to N of (cos(2πf * tk)) )^2
+    public List<PlotPoint> executeFunction(final FunctionType functionType) {
         return new PlotFunction() {
 
             @Override
@@ -74,7 +66,7 @@ public class PlotManager {
         }.apply(this.tValues, this.n);
     }
 
-    private enum FunctionType {
+    public enum FunctionType {
         SIN, COS
     }
 }
