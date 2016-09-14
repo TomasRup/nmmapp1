@@ -23,14 +23,15 @@ public class App {
         final double sigma = Double.valueOf(args[2]);
         final double gamma = Double.valueOf(args[3]);
         final String tFileLocation = args[4];
-        final String outputFileLocation = args[5];
+        final String rawFunctionType = args[5];
+        final String outputFileLocation = args[6];
 
         if ("point-processing".equalsIgnoreCase(mode)) {
 
             runPointProcessingMode(n, sigma, gamma, tFileLocation);
 
         } else if ("plot-creation".equalsIgnoreCase(mode)) {
-            final PlotManager.FunctionType functionType = PlotManager.FunctionType.valueOf(args[5]);
+            final PlotManager.FunctionType functionType = PlotManager.FunctionType.valueOf(rawFunctionType);
             runPlotCreationMode(n, functionType, tFileLocation, outputFileLocation);
         }
 
