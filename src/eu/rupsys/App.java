@@ -10,7 +10,7 @@ import java.util.List;
 public class App {
 
     public static void main(final String[] args) {
-        
+
         // Validating user parameters
         if (!enoughArgumentsProvided(args, 5)) {
             System.out.println(

@@ -46,9 +46,9 @@ public class FileHelper {
             for (int i = 0 ; i < values.size() ; i++) {
                 final PlotPoint point = values.get(i);
                 final String stringToPrint = "("
-                        + point.getX()
+                        + FORMATTER.format(point.getX())
                         + ", "
-                        + point.getY()
+                        + FORMATTER.format(point.getY())
                         + ")"
                         + (i != values.size() - 1
                             ? ", "
