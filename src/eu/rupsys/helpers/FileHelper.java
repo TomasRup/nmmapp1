@@ -51,7 +51,7 @@ public class FileHelper {
                         + FORMATTER.format(point.getY())
                         + ")"
                         + (i != values.size() - 1
-                            ? ", "
+                            ? ","
                             : "");
 
                 writer.println(stringToPrint);
