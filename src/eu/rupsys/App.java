@@ -13,8 +13,8 @@ public class App {
 
         // Validating user parameters
         if (!enoughArgumentsProvided(args, 5)) {
-            System.out.println(
-                    "Usage: java App [mode] [n] [sigma] [gamma] [t_file_location] [SIN/COS] [output_file_location]");
+            System.out.println("Usage: java App "
+                    + "[mode] [n] [sigma] [gamma] [t_file_location] [SIN/COS] [output_file_location]");
             System.exit(1);
         }
 
